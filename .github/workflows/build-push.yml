@@ -18,18 +18,18 @@ jobs:
       - name: 'Build & Push to ACR'
         uses: azure/docker-login@v1
         with:
-          login-server: your-acr-login-server.azurecr.io
+          login-server: oguzhandocker.azurecr.io
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - run: |
-          docker build . -t your-acr-login-server.azurecr.io/week9example1:${{ github.sha }}
-          docker push your-acr-login-server.azurecr.io/week9example1:${{ github.sha }}
+          docker build . -t oguzhandocker.azurecr.io/week9example1:${{ github.sha }}
+          docker push oguzhandocker.azurecr.io/week9example1:${{ github.sha }}
 
       - name: 'Deploy from ACR to App Service'
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'your-app-service-name'
-          images: 'your-acr-login-server.azurecr.io/week9example1:${{ github.sha }}'
+          app-name: 'myFinalApp'
+          images: 'oguzhandocker.azurecr.io/week9example1:${{ github.sha }}'
 
       - run: az logout
