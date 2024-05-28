@@ -2,12 +2,10 @@ const express = require('express');
 const app = express();
 const port = 8080;
 
-// Basit bir endpoint
-app.get('/hello', (req, res) => {
-  res.send('Hello, World!');
+app.get('/', (req, res) => {
+  res.send('Hello, Azure Container :)');
 });
 
-// Sunucuyu başlat
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 });
