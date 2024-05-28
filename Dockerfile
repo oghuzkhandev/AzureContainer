@@ -1,5 +1,5 @@
 # Temel imaj olarak resmi Node.js imajını kullan
-FROM node:14
+FROM node:16
 
 # Uygulama dizinini oluştur
 WORKDIR /usr/src/app
